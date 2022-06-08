@@ -1,13 +1,13 @@
 img{
-    width : 200px;
-    height: 200px;
+    width : 150px;
+    height: 150px;
     object-fit: contain
 }
 
 #divPlayer{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin-top: 10px;
     border: 2px solid blue;
     width: 1400px;

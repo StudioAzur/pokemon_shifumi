@@ -52,12 +52,16 @@ const initGame = (list) => {
     let choiceIa = getRandomInt(list[1].choice.length);
     let choicePlayer = list[1].choice = list[1].choice[choiceIa]; 
     displayChoiceIa(choicePlayer);
-    getChoicePlayer(choices);
+    getChoicePlayer(choices, list);
 }
 
 
-const getChoicePlayer = (choices) => {
- console.log(choices);
+const getChoicePlayer = (choices, list) => {
+     choices.forEach(item => {
+         item.addEventListener("click", () =>{
+             list[0].choice = item.id;
+         })
+     });
 } 
 
 const getRandomInt = (max) => {
