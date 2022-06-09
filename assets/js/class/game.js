@@ -17,7 +17,6 @@ export default class Game {
     const getCurrentTurnPlayer = () => {
       return this.listPlayer[this.turnPlayer];
     };
-    
   }
 }
 
@@ -25,7 +24,6 @@ const body = document.querySelector("body");
 let container = document.querySelector("#container");
 let battleButton = document.querySelector("#battle");
 const choices = document.querySelectorAll(".choice__player");
-
 
 const displayChoiceIa = (choice, list) => {
   console.log(`Choix de l'IA :  ${choice}`);
@@ -49,18 +47,14 @@ const displayChoiceIa = (choice, list) => {
 };
 
 const initGame = (list) => {
-  let choiceIa = getRandomInt(list[1].choice.length);
-  let choicePlayer2 = (list[1].choice = list[1].choice[choiceIa]);
-  displayChoiceIa(choicePlayer2, list);
   getChoicePlayer(choices, list);
-
-  battleButton.addEventListener("click", ()=>{
+  battleButton.addEventListener("click", () => {
+    let choiceIa = getRandomInt(list[1].choice.length);
+    let choicePlayer2 = (list[1].choice = list[1].choice[choiceIa]);
+    displayChoiceIa(choicePlayer2, list);
     battle(list[0].choice, list[1].choice, list);
-})
-  
+  });
 };
-
-
 
 const getChoicePlayer = (choices, list) => {
   choices.forEach((item) => {
@@ -76,17 +70,16 @@ const getChoicePlayer = (choices, list) => {
 const removeColor = () => {};
 
 const battle = (player1, player2, list) => {
-    if(player1 == player2){
-        console.log("égalité");
+  while (list[0].nbPoint == 2 || list[1].nbPoint == 2) {
+    if (player1 == player2) {
+      console.log("égalité");
+      list[0].nbPoint++;
+      list[1].nbPoint++;
     }
-
+    console.log("Game Over");
+  }
 };
-
-
-
 
 const getRandomInt = (max) => {
   return Math.floor(Math.random() * max);
 };
-
-
