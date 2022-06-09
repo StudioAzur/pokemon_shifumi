@@ -1,6 +1,7 @@
 img{
     width : 150px;
     height: 150px;
+    padding: 2em;
     object-fit: contain
 }
 
@@ -33,4 +34,8 @@ img{
 
 button{
     width : 20%
+}
+
+.highlight{
+    background-color: blue;
 }
