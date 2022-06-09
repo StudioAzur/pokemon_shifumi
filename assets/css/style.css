@@ -2,7 +2,8 @@ img{
     width : 150px;
     height: 150px;
     padding: 2em;
-    object-fit: contain
+    object-fit: contain;
+    cursor: pointer; 
 }
 
 #divPlayer{
@@ -10,9 +11,10 @@ img{
     align-items: center;
     justify-content: space-around;
     margin-top: 10px;
-    border: 2px solid blue;
+    border: 2px solid #26abff;
     width: 1400px;
     height: 300px;
+    margin-bottom: 30px;
 }
 
 #divIa{
@@ -32,10 +34,50 @@ img{
     justify-content: center;
 }
 
-button{
-    width : 10%
+.highlight{
+    background-color: #26abff;
 }
 
-.highlight{
-    background-color: blue;
+#restart{
+    visibility: hidden;
+    margin-top: 2em;
+    background-color: #98D8D8;
+	border: 1px solid #638D8D;
+    width: 10rem;
+    height: 3rem;
+    transition: 2s;
+}
+#restart:hover{
+    background-color: #638D8D;
+}
+
+h1{
+    text-align: center;
+}
+
+body{
+    background-image: url("../img/arena.jpg");
+    background-size: cover;
+    object-fit: cover;
+    color: antiquewhite;
+}
+
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    column-gap: 3em;
+}
+
+#battle{
+    background-color: #98D8D8;
+	border: 1px solid #638D8D;
+    width: 10rem;
+    height: 3rem;
+    color: black;
+    transition: 2s;
+}
+#battle:hover{
+    background-color: #638D8D;
 }

@@ -1,8 +1,9 @@
 import Dresseur from "./dresseur.js";
+/* La classe Game est une classe qui contient une liste de joueurs et une fonction qui renvoie le
+joueur actuel. */
 export default class Game {
     constructor() {
         this.listPlayer = [];
-        this.turnPlayer = 0;
         const player1 = new Dresseur({
             name: "Blue",
             color: "blue",
@@ -22,13 +23,18 @@ export default class Game {
 
 let battleButton = document.querySelector("#battle");
 const choices = document.querySelectorAll(".choice__player");
+let restart = document.querySelector("#restart");
+
+restart.addEventListener("click", () => {
+    location.reload();
+});
 
 /**
  * Cette fonction supprime l'image, crée une nouvelle image et enregistre le choix de l'IA.
  * @param choice - le choix de l'IA
  * @param list - la liste des choix
  */
-const displayChoiceIa = (choice, list) => {
+const displayChoiceIa = (choice) => {
     removeImg();
     createImage(choice);
     console.log(`Choix de l'IA :  ${choice}`);
@@ -70,8 +76,28 @@ const initGame = (list) => {
         choicePlayer2 = list[1].choice = elements[choiceIa];
         displayChoiceIa(choicePlayer2);
         battle(list[0].choice, list[1].choice, list);
+
+        if (list[0].nbPoint == 2 || list[1].nbPoint == 2) {
+            let winner;
+            if (list[0].nbPoint == 2) {
+                winner = "Blue";
+            } else {
+                winner = "Red";
+            }
+            gameOver(winner);
+        }
         displayScore(list);
     });
+};
+
+/**
+ * le joueur perd la partie.
+ */
+const gameOver = (winner) => {
+    let result = document.querySelector("#result");
+    result.textContent = `${winner} a gagné !`;
+    battleButton.disabled = "true";
+    restart.style.visibility = "visible";
 };
 
 /**
@@ -145,12 +171,6 @@ const displayScore = (list) => {
     let red = document.querySelector("#score_red");
     red.textContent = list[1].nbPoint;
     blue.textContent = list[0].nbPoint;
-};
-
-const gameOver = (list) => {
-    if (list[0].nbPoint == 2 || list[1].nbPoint == 2) {
-        console.log("Jeu terminé");
-    }
 };
 
 /**
