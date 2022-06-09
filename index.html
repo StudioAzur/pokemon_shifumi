@@ -11,14 +11,31 @@
 
 <body>
     <div id="container">
-        <div id="divPlayer">
-        <img src="./assets/img/salameche.png" alt="" id="Feu" class="choice__player">
-        <img src="./assets/img/carapuce.png"" alt="" id= "Eau" class="choice__player">
-        <img src="./assets/img/bulbizarre.png" alt="" id="Plante" class="choice__player">
+        <div id="score">
+            <div>
+                <h2>Score Blue : <span id="score_blue"></span></h2>
+            </div>
+            <div>
+                <h2>Score Red : <span id="score_red"></span></h2>
+            </div>
+            <div >
+                <h2 id="result"></h2>
+            </div>
         </div>
-        <h3>Choisis ton pokémon</h3>
-        
+        <div id="divPlayer">
+            <h3>Choisis ton pokémon</h3>
+            <img src="./assets/img/salameche.png" alt="" id="Feu" class="choice__player">
+            <img src="./assets/img/carapuce.png"" alt="" id= "Eau" class="choice__player">
+            <img src="./assets/img/bulbizarre.png" alt="" id="Plante" class="choice__player">
+            <div id="score">
+            </div>
+        </div>
         <button id="battle">Battle ! </button>
+        <div id="divIa">
+        </div>
+
+
+
     </div>
     <script type="module" src="./assets/js/class/main.js"></script>
 </body>
